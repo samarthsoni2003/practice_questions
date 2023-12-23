@@ -1,0 +1,47 @@
+https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/
+
+#include<bits/stdc++.h>
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int mini=INT_MAX;
+        bool issorted=1;
+        int n=nums.size();
+        for(int j=1;j<n;j++){
+            if(nums[j]<nums[j-1]){
+                issorted=0;
+                break;
+            }
+        }
+        if(issorted){
+            return true;
+        }
+        int index=0;
+        for(int i=1;i<n;i++){            // used for finding the index with min value
+            if(nums[i]<nums[i-1]){
+                if(nums[i]<mini){
+                    mini=nums[i];
+                    index=i;
+                }
+            }
+        }
+    for(int i=0;i<index;i++){
+        if(i-1>=0){
+            if(nums[i]<nums[i-1]){
+            return false;
+        }
+        }
+    }
+    if(nums[0]<nums[n-1]){
+        return false;
+    }
+    for(int i=index+1;i<n;i++){
+        if(i-1>=0){
+             if(nums[i]<nums[i-1]){
+            return false;
+        }
+    }
+}
+    return true;
+    }
+}; 

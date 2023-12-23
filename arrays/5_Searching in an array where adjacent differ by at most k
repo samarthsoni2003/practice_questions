@@ -1,0 +1,21 @@
+https://www.geeksforgeeks.org/problems/searching-in-an-array-where-adjacent-differ-by-at-most-k0456/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article
+
+    while(i < n){
+        if(arr[i] == x){
+            return i;
+        }
+        else if((arr[i]-k <= x) && (x <= arr[i]+k )){
+            i++;
+        }
+        else{
+            if(i == n-2){
+                i++;
+            }
+            else{
+                i+=2;
+            }
+        }
+        if(i>=n){
+            return -1;
+        }
+    }	

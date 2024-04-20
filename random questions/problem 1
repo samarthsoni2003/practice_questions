@@ -1,0 +1,13 @@
+https://www.naukri.com/code360/problems/number-of-digits_4538242?leftPanelTabValue=SUBMISSION
+
+#include <bits/stdc++.h> 
+int countDigit(long long x) {
+    long long  num = x;
+    int count = 0;
+    while(num != 0 ){
+        int x = num % 10;
+        num = num / 10;
+        count++;
+    }
+    return count ;
+}

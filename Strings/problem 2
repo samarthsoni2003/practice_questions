@@ -1,0 +1,33 @@
+https://www.naukri.com/code360/problems/write-as-you-speak_1090543?leftPanelTabValue=PROBLEM
+
+ Count And Say
+
+ #include <bits/stdc++.h> 
+string count_and_say(int n, string find_ans){
+	if(n == 1){
+		return find_ans;
+	}
+
+	string temp = find_ans;
+	string ans = "";
+	int count = 1;
+
+	for(int i = 0; i < temp.length(); i++){
+
+		if(i + 1 < temp.length() && temp[i] == temp[i+1]){
+			count++;
+		}
+
+		else{
+			ans.push_back(('0' + count));
+			ans.push_back(temp[i]);
+			count = 1;
+		}
+		
+	}
+	return count_and_say(n-1, ans);
+}
+string writeAsYouSpeak(int n) 
+{
+	return count_and_say(n, "1");
+}

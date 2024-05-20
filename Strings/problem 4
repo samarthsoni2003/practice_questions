@@ -1,0 +1,18 @@
+ Alien dictionary
+
+ https://www.naukri.com/code360/problems/alien-dictionary_630423?leftPanelTabValue=PROBLEM&count=25&search=&sort_entity=order&sort_order=ASC&customSource=studio_nav
+
+ string getAlienLanguage(vector<string> &dictionary, int k)
+{
+    string str = "";
+
+    for(int i = 0; i < dictionary.size(); i++){
+
+        for(int j = 0; j < dictionary[i].length(); j++){
+
+            if(str == "" || str[str.length() - 1] != dictionary[i][j])  str += dictionary[i][j];
+            
+        }
+    }
+    return str;
+} 

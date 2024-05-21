@@ -1,0 +1,16 @@
+ Excel Sheet | Part-2
+
+ https://www.naukri.com/code360/problems/excel-sheet-part-2_981257?leftPanelTabValue=PROBLEM&count=25&search=&sort_entity=order&sort_order=ASC&customSource=studio_nav
+
+ #include <bits/stdc++.h> 
+long long titleToNumber(string str) {
+    long long int sum = 0;
+    long long temp = 1;
+
+    for(int i = str.length() - 1; i >= 0; i--){
+        sum += temp * (str[i] - 'A' + 1);
+        temp *= 26;
+    }   // pow(26,j) galti de rha in v big test case because that is suitable for floating point calculations
+
+    return sum;
+}

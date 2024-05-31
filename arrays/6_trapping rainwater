@@ -1,0 +1,27 @@
+https://www.naukri.com/code360/problems/trapping-rainwater_630519?leftPanelTabValue=SUBMISSION
+
+long long getTrappedWater(long long* arr, int n) {
+    vector<int> leftHighestIdx(n,-1);
+    vector<int> rightHighestIdx(n,-1);
+    int tmpIdx=0;
+
+    for(int i=1;i<n;i++){
+        leftHighestIdx[i]=tmpIdx;
+        if(arr[i]>=arr[tmpIdx]) tmpIdx=i;
+    }
+    
+    tmpIdx=n-1;
+    for(int i=n-2;i>=0;i--){
+        rightHighestIdx[i]=tmpIdx;
+        if(arr[i]>arr[tmpIdx]) tmpIdx=i;
+    }
+
+    long long ans=0;
+    for(int i=0;i<n;i++){
+        if(leftHighestIdx[i]!=-1 && rightHighestIdx[i]!=-1){
+            int tmp=min(arr[leftHighestIdx[i]],arr[rightHighestIdx[i]])-arr[i];
+            ans+=tmp>0 ? tmp : 0;
+        }
+    }
+    return ans;
+}

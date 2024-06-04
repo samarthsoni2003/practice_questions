@@ -27,3 +27,5 @@ vector<string> combinations(string s){
     solve(s,ans,keypad,substring,0);
     return ans;
 }
+
+LOGIC TOH BANA DIYA BS CODE COPY
